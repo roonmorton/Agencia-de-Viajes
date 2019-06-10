@@ -1,0 +1,660 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="agencia_viajes_condorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="AgregarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombres" Type="varchar" Mode="In" />
+          <Parameter Name="apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="dpi" Type="varchar" Mode="In" />
+          <Parameter Name="direccion" Type="varchar" Mode="In" />
+          <Parameter Name="telefono" Type="varchar" Mode="In" />
+          <Parameter Name="nacimiento" Type="varchar" Mode="In" />
+          <Parameter Name="nit" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="buscarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dpi" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="destinos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="query" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="detalleVuelo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vuelo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Facturar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="reservacion" Type="int" Mode="In" />
+          <Parameter Name="fecha" Type="varchar" Mode="In" />
+          <Parameter Name="t_pago" Type="int" Mode="In" />
+          <Parameter Name="efectivo" Type="varchar" Mode="In" />
+          <Parameter Name="credito" Type="varchar" Mode="In" />
+          <Parameter Name="debito" Type="varchar" Mode="In" />
+          <Parameter Name="cliente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="facturar_vuelo_economico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="reservacion" Type="int" Mode="In" />
+          <Parameter Name="fecha" Type="varchar" Mode="In" />
+          <Parameter Name="t_pago" Type="int" Mode="In" />
+          <Parameter Name="efectivo" Type="varchar" Mode="In" />
+          <Parameter Name="credito" Type="varchar" Mode="In" />
+          <Parameter Name="debito" Type="varchar" Mode="In" />
+          <Parameter Name="cliente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="facturar_vuelo_primera_clase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="reservacion" Type="int" Mode="In" />
+          <Parameter Name="fecha" Type="varchar" Mode="In" />
+          <Parameter Name="t_pago" Type="int" Mode="In" />
+          <Parameter Name="efectivo" Type="varchar" Mode="In" />
+          <Parameter Name="credito" Type="varchar" Mode="In" />
+          <Parameter Name="debito" Type="varchar" Mode="In" />
+          <Parameter Name="cliente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="lista_hotel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="destino" Type="int" Mode="In" />
+          <Parameter Name="doble" Type="int" Mode="In" />
+          <Parameter Name="simple" Type="int" Mode="In" />
+        </Function>
+        <Function Name="listar_cruceros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="puerto" Type="int" Mode="In" />
+          <Parameter Name="fecha" Type="varchar" Mode="In" />
+          <Parameter Name="pasajeros" Type="int" Mode="In" />
+        </Function>
+        <Function Name="login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pass" Type="varchar" Mode="In" />
+          <Parameter Name="user" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="obtenerReservacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="codigo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="reservar_crucero" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usuario" Type="int" Mode="In" />
+          <Parameter Name="crucero" Type="int" Mode="In" />
+          <Parameter Name="pasajeros" Type="int" Mode="In" />
+        </Function>
+        <Function Name="reservar_vuelo_Hotel_e" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="destino" Type="int" Mode="In" />
+          <Parameter Name="vuelo" Type="int" Mode="In" />
+          <Parameter Name="pasajeros" Type="int" Mode="In" />
+          <Parameter Name="desayuno" Type="int" Mode="In" />
+          <Parameter Name="habitacion_s" Type="int" Mode="In" />
+          <Parameter Name="habitacion_d" Type="int" Mode="In" />
+          <Parameter Name="hotel" Type="int" Mode="In" />
+          <Parameter Name="usuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="reservar_vuelo_Hotel_p" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="destino" Type="int" Mode="In" />
+          <Parameter Name="vuelo" Type="int" Mode="In" />
+          <Parameter Name="pasajeros" Type="int" Mode="In" />
+          <Parameter Name="desayuno" Type="int" Mode="In" />
+          <Parameter Name="habitacion_s" Type="int" Mode="In" />
+          <Parameter Name="habitacion_d" Type="int" Mode="In" />
+          <Parameter Name="hotel" Type="int" Mode="In" />
+          <Parameter Name="usuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="reservar_vuelo_Hotel_Traslado_e" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="destino" Type="int" Mode="In" />
+          <Parameter Name="vuelo" Type="int" Mode="In" />
+          <Parameter Name="pasajeros" Type="int" Mode="In" />
+          <Parameter Name="desayuno" Type="int" Mode="In" />
+          <Parameter Name="habitacion_s" Type="int" Mode="In" />
+          <Parameter Name="habitacion_d" Type="int" Mode="In" />
+          <Parameter Name="hotel" Type="int" Mode="In" />
+          <Parameter Name="usuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="reservar_vuelo_Hotel_Traslado_p" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="destino" Type="int" Mode="In" />
+          <Parameter Name="vuelo" Type="int" Mode="In" />
+          <Parameter Name="pasajeros" Type="int" Mode="In" />
+          <Parameter Name="desayuno" Type="int" Mode="In" />
+          <Parameter Name="habitacion_s" Type="int" Mode="In" />
+          <Parameter Name="habitacion_d" Type="int" Mode="In" />
+          <Parameter Name="hotel" Type="int" Mode="In" />
+          <Parameter Name="usuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="reservarVuelo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tipo" Type="varchar" Mode="In" />
+          <Parameter Name="vuelo" Type="varchar" Mode="In" />
+          <Parameter Name="destino" Type="varchar" Mode="In" />
+          <Parameter Name="usuario" Type="varchar" Mode="In" />
+          <Parameter Name="pasajeros" Type="int" Mode="In" />
+        </Function>
+        <Function Name="salida" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="query" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ticket_crucero" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="factura" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ticket_Vuelo_E" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="factura" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ticket_Vuelo_Hotel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="factura" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ubicar_crucero" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="query" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="vuelos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fecha" Type="date" Mode="In" />
+          <Parameter Name="codigo_aeropuerto" Type="int" Mode="In" />
+          <Parameter Name="codigo_destino" Type="int" Mode="In" />
+          <Parameter Name="asientos" Type="int" Mode="In" />
+          <Parameter Name="tipo" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="agencia_viajes_condorModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="agencia_viajes_condorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="agencia_viajes_condorEntities1" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="AgregarCliente" ReturnType="Collection(Int32)">
+            <Parameter Name="nombres" Mode="In" Type="String" />
+            <Parameter Name="apellidos" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="dpi" Mode="In" Type="String" />
+            <Parameter Name="direccion" Mode="In" Type="String" />
+            <Parameter Name="telefono" Mode="In" Type="String" />
+            <Parameter Name="nacimiento" Mode="In" Type="String" />
+            <Parameter Name="nit" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="buscarCliente" ReturnType="Collection(agencia_viajes_condorModel.buscarCliente_Result)">
+            <Parameter Name="dpi" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="destinos" ReturnType="Collection(agencia_viajes_condorModel.destinos_Result)">
+            <Parameter Name="query" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="detalleVuelo" ReturnType="Collection(agencia_viajes_condorModel.detalleVuelo_Result)">
+            <Parameter Name="vuelo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Facturar" ReturnType="Collection(Int32)">
+            <Parameter Name="reservacion" Mode="In" Type="Int32" />
+            <Parameter Name="fecha" Mode="In" Type="String" />
+            <Parameter Name="t_pago" Mode="In" Type="Int32" />
+            <Parameter Name="efectivo" Mode="In" Type="String" />
+            <Parameter Name="credito" Mode="In" Type="String" />
+            <Parameter Name="debito" Mode="In" Type="String" />
+            <Parameter Name="cliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="facturar_vuelo_economico" ReturnType="Collection(Int32)">
+            <Parameter Name="reservacion" Mode="In" Type="Int32" />
+            <Parameter Name="fecha" Mode="In" Type="String" />
+            <Parameter Name="t_pago" Mode="In" Type="Int32" />
+            <Parameter Name="efectivo" Mode="In" Type="String" />
+            <Parameter Name="credito" Mode="In" Type="String" />
+            <Parameter Name="debito" Mode="In" Type="String" />
+            <Parameter Name="cliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="facturar_vuelo_primera_clase" ReturnType="Collection(Int32)">
+            <Parameter Name="reservacion" Mode="In" Type="Int32" />
+            <Parameter Name="fecha" Mode="In" Type="String" />
+            <Parameter Name="t_pago" Mode="In" Type="Int32" />
+            <Parameter Name="efectivo" Mode="In" Type="String" />
+            <Parameter Name="credito" Mode="In" Type="String" />
+            <Parameter Name="debito" Mode="In" Type="String" />
+            <Parameter Name="cliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="lista_hotel" ReturnType="Collection(agencia_viajes_condorModel.lista_hotel_Result)">
+            <Parameter Name="destino" Mode="In" Type="Int32" />
+            <Parameter Name="doble" Mode="In" Type="Int32" />
+            <Parameter Name="simple" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="listar_cruceros" ReturnType="Collection(agencia_viajes_condorModel.listar_cruceros_Result)">
+            <Parameter Name="puerto" Mode="In" Type="Int32" />
+            <Parameter Name="fecha" Mode="In" Type="String" />
+            <Parameter Name="pasajeros" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="login" ReturnType="Collection(agencia_viajes_condorModel.login_Result)">
+            <Parameter Name="pass" Mode="In" Type="String" />
+            <Parameter Name="user" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="obtenerReservacion" ReturnType="Collection(Int32)">
+            <Parameter Name="codigo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="reservar_crucero" ReturnType="Collection(Int32)">
+            <Parameter Name="usuario" Mode="In" Type="Int32" />
+            <Parameter Name="crucero" Mode="In" Type="Int32" />
+            <Parameter Name="pasajeros" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="reservar_vuelo_Hotel_e" ReturnType="Collection(Int32)">
+            <Parameter Name="destino" Mode="In" Type="Int32" />
+            <Parameter Name="vuelo" Mode="In" Type="Int32" />
+            <Parameter Name="pasajeros" Mode="In" Type="Int32" />
+            <Parameter Name="desayuno" Mode="In" Type="Int32" />
+            <Parameter Name="habitacion_s" Mode="In" Type="Int32" />
+            <Parameter Name="habitacion_d" Mode="In" Type="Int32" />
+            <Parameter Name="hotel" Mode="In" Type="Int32" />
+            <Parameter Name="usuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="reservar_vuelo_Hotel_p" ReturnType="Collection(Int32)">
+            <Parameter Name="destino" Mode="In" Type="Int32" />
+            <Parameter Name="vuelo" Mode="In" Type="Int32" />
+            <Parameter Name="pasajeros" Mode="In" Type="Int32" />
+            <Parameter Name="desayuno" Mode="In" Type="Int32" />
+            <Parameter Name="habitacion_s" Mode="In" Type="Int32" />
+            <Parameter Name="habitacion_d" Mode="In" Type="Int32" />
+            <Parameter Name="hotel" Mode="In" Type="Int32" />
+            <Parameter Name="usuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="reservar_vuelo_Hotel_Traslado_e" ReturnType="Collection(Int32)">
+            <Parameter Name="destino" Mode="In" Type="Int32" />
+            <Parameter Name="vuelo" Mode="In" Type="Int32" />
+            <Parameter Name="pasajeros" Mode="In" Type="Int32" />
+            <Parameter Name="desayuno" Mode="In" Type="Int32" />
+            <Parameter Name="habitacion_s" Mode="In" Type="Int32" />
+            <Parameter Name="habitacion_d" Mode="In" Type="Int32" />
+            <Parameter Name="hotel" Mode="In" Type="Int32" />
+            <Parameter Name="usuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="reservar_vuelo_Hotel_Traslado_p" ReturnType="Collection(Int32)">
+            <Parameter Name="destino" Mode="In" Type="Int32" />
+            <Parameter Name="vuelo" Mode="In" Type="Int32" />
+            <Parameter Name="pasajeros" Mode="In" Type="Int32" />
+            <Parameter Name="desayuno" Mode="In" Type="Int32" />
+            <Parameter Name="habitacion_s" Mode="In" Type="Int32" />
+            <Parameter Name="habitacion_d" Mode="In" Type="Int32" />
+            <Parameter Name="hotel" Mode="In" Type="Int32" />
+            <Parameter Name="usuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="reservarVuelo" ReturnType="Collection(Int32)">
+            <Parameter Name="tipo" Mode="In" Type="String" />
+            <Parameter Name="vuelo" Mode="In" Type="String" />
+            <Parameter Name="destino" Mode="In" Type="String" />
+            <Parameter Name="usuario" Mode="In" Type="String" />
+            <Parameter Name="pasajeros" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="salida" ReturnType="Collection(agencia_viajes_condorModel.salida_Result)">
+            <Parameter Name="query" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ticket_crucero" ReturnType="Collection(agencia_viajes_condorModel.ticket_crucero_Result)">
+            <Parameter Name="factura" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ticket_Vuelo_E" ReturnType="Collection(agencia_viajes_condorModel.ticket_Vuelo_E_Result)">
+            <Parameter Name="factura" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ticket_Vuelo_Hotel" ReturnType="Collection(agencia_viajes_condorModel.ticket_Vuelo_Hotel_Result)">
+            <Parameter Name="factura" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ubicar_crucero" ReturnType="Collection(agencia_viajes_condorModel.ubicar_crucero_Result)">
+            <Parameter Name="query" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="vuelos" ReturnType="Collection(agencia_viajes_condorModel.vuelos_Result)">
+            <Parameter Name="fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="codigo_aeropuerto" Mode="In" Type="Int32" />
+            <Parameter Name="codigo_destino" Mode="In" Type="Int32" />
+            <Parameter Name="asientos" Mode="In" Type="Int32" />
+            <Parameter Name="tipo" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="buscarCliente_Result">
+          <Property Type="Int32" Name="codigo" Nullable="false" />
+          <Property Type="String" Name="nombres" Nullable="true" MaxLength="45" />
+          <Property Type="String" Name="apellidos" Nullable="true" MaxLength="45" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="dpi" Nullable="true" MaxLength="13" />
+          <Property Type="String" Name="direccion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="telefono" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="fecha_nacimiento" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="nit" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="destinos_Result">
+          <Property Type="Int32" Name="codigo" Nullable="false" />
+          <Property Type="String" Name="pais" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="departamento" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="descripcion_t" Nullable="true" MaxLength="87" />
+        </ComplexType>
+        <ComplexType Name="detalleVuelo_Result">
+          <Property Type="Int32" Name="codigo" Nullable="false" />
+          <Property Type="Int32" Name="tipo" Nullable="true" />
+          <Property Type="Int32" Name="personas" Nullable="true" />
+          <Property Type="Double" Name="precio" Nullable="true" />
+          <Property Type="String" Name="descripcion" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="aeropuerto_salida" Nullable="true" MaxLength="289" />
+          <Property Type="String" Name="aeropuerto_llegada" Nullable="true" MaxLength="289" />
+          <Property Type="Double" Name="subTotal" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="lista_hotel_Result">
+          <Property Type="Int32" Name="codigo_hotel" Nullable="false" />
+          <Property Type="String" Name="descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="habitaciones" Nullable="true" />
+          <Property Type="Int32" Name="habitaciones_doble" Nullable="true" />
+          <Property Type="Int32" Name="habitaciones_simple" Nullable="true" />
+          <Property Type="Double" Name="p_habitacion_simple" Nullable="true" />
+          <Property Type="Double" Name="p_habitacion_doble" Nullable="true" />
+          <Property Type="String" Name="direccion" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="pais" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="departamento" Nullable="true" MaxLength="60" />
+        </ComplexType>
+        <ComplexType Name="listar_cruceros_Result">
+          <Property Type="Int32" Name="codigo_crucero" Nullable="false" />
+          <Property Type="DateTime" Name="fecha_salida" Nullable="true" />
+          <Property Type="Int32" Name="pasajeros" Nullable="true" />
+          <Property Type="Double" Name="precio" Nullable="true" />
+          <Property Type="Int32" Name="reservados" Nullable="true" />
+          <Property Type="String" Name="d_crucero" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="salida" Nullable="true" MaxLength="131" />
+        </ComplexType>
+        <ComplexType Name="login_Result">
+          <Property Type="Int32" Name="codigo" Nullable="false" />
+          <Property Type="String" Name="nombres" Nullable="true" MaxLength="45" />
+          <Property Type="String" Name="apellidos" Nullable="true" MaxLength="45" />
+          <Property Type="String" Name="dpi" Nullable="true" MaxLength="13" />
+          <Property Type="String" Name="direccion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="telefono" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="username" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="pass" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="tipo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="salida_Result">
+          <Property Type="Int32" Name="codigo_aeropuerto" Nullable="false" />
+          <Property Type="String" Name="descripcion" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="codigo_destino" Nullable="false" />
+          <Property Type="String" Name="pais" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="ubicacion" Nullable="true" MaxLength="227" />
+        </ComplexType>
+        <ComplexType Name="ticket_crucero_Result">
+          <Property Type="Int32" Name="codigo_factura" Nullable="false" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="String" Name="crucero" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="fecha_salida" Nullable="true" />
+          <Property Type="Int32" Name="cantidad" Nullable="true" />
+          <Property Type="Double" Name="precio" Nullable="true" />
+          <Property Type="String" Name="item" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="nombres" Nullable="true" MaxLength="45" />
+          <Property Type="String" Name="apellidos" Nullable="true" MaxLength="45" />
+          <Property Type="String" Name="nit" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="codigo_crucero" Nullable="false" />
+          <Property Type="String" Name="puerto" Nullable="true" MaxLength="131" />
+        </ComplexType>
+        <ComplexType Name="ticket_Vuelo_E_Result">
+          <Property Type="Int32" Name="codigo" Nullable="false" />
+          <Property Type="Int32" Name="tipo" Nullable="true" />
+          <Property Type="Int32" Name="personas" Nullable="true" />
+          <Property Type="Int32" Name="codigo_vuelo" Nullable="true" />
+          <Property Type="Int32" Name="no_asiento" Nullable="true" />
+          <Property Type="String" Name="descripcion" Nullable="true" MaxLength="500" />
+          <Property Type="Double" Name="precio" Nullable="true" />
+          <Property Type="DateTime" Name="fecha_salida" Nullable="true" />
+          <Property Type="Int32" Name="codigo_factura" Nullable="false" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="Double" Name="credito" Nullable="true" />
+          <Property Type="Double" Name="debito" Nullable="true" />
+          <Property Type="Double" Name="efectivo" Nullable="true" />
+          <Property Type="String" Name="nombres" Nullable="true" MaxLength="45" />
+          <Property Type="String" Name="apellidos" Nullable="true" MaxLength="45" />
+          <Property Type="String" Name="nit" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="aeropuerto_salida" Nullable="true" MaxLength="289" />
+          <Property Type="String" Name="aeropuerto_llegada" Nullable="true" MaxLength="289" />
+        </ComplexType>
+        <ComplexType Name="ticket_Vuelo_Hotel_Result">
+          <Property Type="Int32" Name="codigo" Nullable="false" />
+          <Property Type="Int32" Name="tipo" Nullable="true" />
+          <Property Type="Int32" Name="personas" Nullable="true" />
+          <Property Type="Int32" Name="codigo_vuelo" Nullable="true" />
+          <Property Type="Int32" Name="no_asiento" Nullable="true" />
+          <Property Type="String" Name="descripcion_item" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="codigo_item" Nullable="false" />
+          <Property Type="Double" Name="precio" Nullable="true" />
+          <Property Type="Int32" Name="cantidad" Nullable="true" />
+          <Property Type="DateTime" Name="fecha_salida" Nullable="true" />
+          <Property Type="String" Name="descripcion_hotel" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="direccion" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="dir_hotel" Nullable="true" MaxLength="87" />
+          <Property Type="Int32" Name="codigo_factura" Nullable="false" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="Double" Name="credito" Nullable="true" />
+          <Property Type="Double" Name="debito" Nullable="true" />
+          <Property Type="Double" Name="efectivo" Nullable="true" />
+          <Property Type="String" Name="nombres" Nullable="true" MaxLength="45" />
+          <Property Type="String" Name="apellidos" Nullable="true" MaxLength="45" />
+          <Property Type="String" Name="nit" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="aeropuerto_salida" Nullable="true" MaxLength="289" />
+          <Property Type="String" Name="aeropuerto_llegada" Nullable="true" MaxLength="289" />
+        </ComplexType>
+        <ComplexType Name="ubicar_crucero_Result">
+          <Property Type="Int32" Name="codigo_puerto" Nullable="false" />
+          <Property Type="String" Name="crucero" Nullable="true" MaxLength="131" />
+        </ComplexType>
+        <ComplexType Name="vuelos_Result">
+          <Property Type="Int32" Name="codigo_vuelo" Nullable="false" />
+          <Property Type="DateTime" Name="fecha_salida" Nullable="true" />
+          <Property Type="Int32" Name="pasajeros_economico" Nullable="true" />
+          <Property Type="Int32" Name="pasajeros_primera" Nullable="true" />
+          <Property Type="Int32" Name="no_asientos" Nullable="true" />
+          <Property Type="Int32" Name="destino" Nullable="false" />
+          <Property Type="String" Name="aeropuerto_salida" Nullable="true" MaxLength="289" />
+          <Property Type="String" Name="aeropuerto_llegada" Nullable="true" MaxLength="289" />
+          <Property Type="Int32" Name="tipo" Nullable="true" />
+          <Property Type="Double" Name="precio_vuelo" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="agencia_viajes_condorModelStoreContainer" CdmEntityContainer="agencia_viajes_condorEntities1" >
+          <FunctionImportMapping FunctionImportName="AgregarCliente" FunctionName="agencia_viajes_condorModel.Store.AgregarCliente" />
+          <FunctionImportMapping FunctionImportName="buscarCliente" FunctionName="agencia_viajes_condorModel.Store.buscarCliente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="agencia_viajes_condorModel.buscarCliente_Result">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="dpi" ColumnName="dpi" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+                <ScalarProperty Name="nit" ColumnName="nit" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="destinos" FunctionName="agencia_viajes_condorModel.Store.destinos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="agencia_viajes_condorModel.destinos_Result">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+                <ScalarProperty Name="descripcion_t" ColumnName="descripcion_t" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="detalleVuelo" FunctionName="agencia_viajes_condorModel.Store.detalleVuelo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="agencia_viajes_condorModel.detalleVuelo_Result">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="personas" ColumnName="personas" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="aeropuerto_salida" ColumnName="aeropuerto_salida" />
+                <ScalarProperty Name="aeropuerto_llegada" ColumnName="aeropuerto_llegada" />
+                <ScalarProperty Name="subTotal" ColumnName="subTotal" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Facturar" FunctionName="agencia_viajes_condorModel.Store.Facturar" />
+          <FunctionImportMapping FunctionImportName="facturar_vuelo_economico" FunctionName="agencia_viajes_condorModel.Store.facturar_vuelo_economico" />
+          <FunctionImportMapping FunctionImportName="facturar_vuelo_primera_clase" FunctionName="agencia_viajes_condorModel.Store.facturar_vuelo_primera_clase" />
+          <FunctionImportMapping FunctionImportName="lista_hotel" FunctionName="agencia_viajes_condorModel.Store.lista_hotel">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="agencia_viajes_condorModel.lista_hotel_Result">
+                <ScalarProperty Name="codigo_hotel" ColumnName="codigo_hotel" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="habitaciones" ColumnName="habitaciones" />
+                <ScalarProperty Name="habitaciones_doble" ColumnName="habitaciones_doble" />
+                <ScalarProperty Name="habitaciones_simple" ColumnName="habitaciones_simple" />
+                <ScalarProperty Name="p_habitacion_simple" ColumnName="p_habitacion_simple" />
+                <ScalarProperty Name="p_habitacion_doble" ColumnName="p_habitacion_doble" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="listar_cruceros" FunctionName="agencia_viajes_condorModel.Store.listar_cruceros">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="agencia_viajes_condorModel.listar_cruceros_Result">
+                <ScalarProperty Name="codigo_crucero" ColumnName="codigo_crucero" />
+                <ScalarProperty Name="fecha_salida" ColumnName="fecha_salida" />
+                <ScalarProperty Name="pasajeros" ColumnName="pasajeros" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="reservados" ColumnName="reservados" />
+                <ScalarProperty Name="d_crucero" ColumnName="d_crucero" />
+                <ScalarProperty Name="salida" ColumnName="salida" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="login" FunctionName="agencia_viajes_condorModel.Store.login">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="agencia_viajes_condorModel.login_Result">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="dpi" ColumnName="dpi" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="obtenerReservacion" FunctionName="agencia_viajes_condorModel.Store.obtenerReservacion" />
+          <FunctionImportMapping FunctionImportName="reservar_crucero" FunctionName="agencia_viajes_condorModel.Store.reservar_crucero" />
+          <FunctionImportMapping FunctionImportName="reservar_vuelo_Hotel_e" FunctionName="agencia_viajes_condorModel.Store.reservar_vuelo_Hotel_e" />
+          <FunctionImportMapping FunctionImportName="reservar_vuelo_Hotel_p" FunctionName="agencia_viajes_condorModel.Store.reservar_vuelo_Hotel_p" />
+          <FunctionImportMapping FunctionImportName="reservar_vuelo_Hotel_Traslado_e" FunctionName="agencia_viajes_condorModel.Store.reservar_vuelo_Hotel_Traslado_e" />
+          <FunctionImportMapping FunctionImportName="reservar_vuelo_Hotel_Traslado_p" FunctionName="agencia_viajes_condorModel.Store.reservar_vuelo_Hotel_Traslado_p" />
+          <FunctionImportMapping FunctionImportName="reservarVuelo" FunctionName="agencia_viajes_condorModel.Store.reservarVuelo" />
+          <FunctionImportMapping FunctionImportName="salida" FunctionName="agencia_viajes_condorModel.Store.salida">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="agencia_viajes_condorModel.salida_Result">
+                <ScalarProperty Name="codigo_aeropuerto" ColumnName="codigo_aeropuerto" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="codigo_destino" ColumnName="codigo_destino" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ticket_crucero" FunctionName="agencia_viajes_condorModel.Store.ticket_crucero">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="agencia_viajes_condorModel.ticket_crucero_Result">
+                <ScalarProperty Name="codigo_factura" ColumnName="codigo_factura" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="crucero" ColumnName="crucero" />
+                <ScalarProperty Name="fecha_salida" ColumnName="fecha_salida" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="item" ColumnName="item" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="nit" ColumnName="nit" />
+                <ScalarProperty Name="codigo_crucero" ColumnName="codigo_crucero" />
+                <ScalarProperty Name="puerto" ColumnName="puerto" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ticket_Vuelo_E" FunctionName="agencia_viajes_condorModel.Store.ticket_Vuelo_E">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="agencia_viajes_condorModel.ticket_Vuelo_E_Result">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="personas" ColumnName="personas" />
+                <ScalarProperty Name="codigo_vuelo" ColumnName="codigo_vuelo" />
+                <ScalarProperty Name="no_asiento" ColumnName="no_asiento" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="fecha_salida" ColumnName="fecha_salida" />
+                <ScalarProperty Name="codigo_factura" ColumnName="codigo_factura" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="credito" ColumnName="credito" />
+                <ScalarProperty Name="debito" ColumnName="debito" />
+                <ScalarProperty Name="efectivo" ColumnName="efectivo" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="nit" ColumnName="nit" />
+                <ScalarProperty Name="aeropuerto_salida" ColumnName="aeropuerto_salida" />
+                <ScalarProperty Name="aeropuerto_llegada" ColumnName="aeropuerto_llegada" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ticket_Vuelo_Hotel" FunctionName="agencia_viajes_condorModel.Store.ticket_Vuelo_Hotel">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="agencia_viajes_condorModel.ticket_Vuelo_Hotel_Result">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="personas" ColumnName="personas" />
+                <ScalarProperty Name="codigo_vuelo" ColumnName="codigo_vuelo" />
+                <ScalarProperty Name="no_asiento" ColumnName="no_asiento" />
+                <ScalarProperty Name="descripcion_item" ColumnName="descripcion_item" />
+                <ScalarProperty Name="codigo_item" ColumnName="codigo_item" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="fecha_salida" ColumnName="fecha_salida" />
+                <ScalarProperty Name="descripcion_hotel" ColumnName="descripcion_hotel" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="dir_hotel" ColumnName="dir_hotel" />
+                <ScalarProperty Name="codigo_factura" ColumnName="codigo_factura" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="credito" ColumnName="credito" />
+                <ScalarProperty Name="debito" ColumnName="debito" />
+                <ScalarProperty Name="efectivo" ColumnName="efectivo" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="nit" ColumnName="nit" />
+                <ScalarProperty Name="aeropuerto_salida" ColumnName="aeropuerto_salida" />
+                <ScalarProperty Name="aeropuerto_llegada" ColumnName="aeropuerto_llegada" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ubicar_crucero" FunctionName="agencia_viajes_condorModel.Store.ubicar_crucero">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="agencia_viajes_condorModel.ubicar_crucero_Result">
+                <ScalarProperty Name="codigo_puerto" ColumnName="codigo_puerto" />
+                <ScalarProperty Name="crucero" ColumnName="crucero" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="vuelos" FunctionName="agencia_viajes_condorModel.Store.vuelos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="agencia_viajes_condorModel.vuelos_Result">
+                <ScalarProperty Name="codigo_vuelo" ColumnName="codigo_vuelo" />
+                <ScalarProperty Name="fecha_salida" ColumnName="fecha_salida" />
+                <ScalarProperty Name="pasajeros_economico" ColumnName="pasajeros_economico" />
+                <ScalarProperty Name="pasajeros_primera" ColumnName="pasajeros_primera" />
+                <ScalarProperty Name="no_asientos" ColumnName="no_asientos" />
+                <ScalarProperty Name="destino" ColumnName="destino" />
+                <ScalarProperty Name="aeropuerto_salida" ColumnName="aeropuerto_salida" />
+                <ScalarProperty Name="aeropuerto_llegada" ColumnName="aeropuerto_llegada" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="precio_vuelo" ColumnName="precio_vuelo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

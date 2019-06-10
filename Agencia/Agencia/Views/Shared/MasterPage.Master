@@ -1,0 +1,81 @@
+﻿<%@ Master Language="VB" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE>
+<html ng-app="agencia">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <%: Scripts.Render("~/bundles/jquery") %>
+    <%: Styles.Render("~/Content/Semantic") %>
+
+    <%: Scripts.Render("~/bundles/angular") %>
+    <style>
+        .top {
+            height: 50px;
+        }
+
+        .img_link {
+            width: 100%;
+            height: 250px;
+        }
+
+        .img-hotel {
+            border: 1px solid rgba(34,36,38,.15);
+            width: 100%;
+            height: 250px;
+        }
+
+        footer {
+            border-top: 1px solid rgba(34,36,38,.15);
+        }
+    </style>
+</head>
+<body>
+    <header class="ui inverted vertical segment">
+        <div class="ui container">
+            <div class="ui inverted segment">
+                <div class="ui inverted secondary pointing menu">
+                    <%: Html.ActionLink("Agencia de Viajes el Condor", "Index", "Home",False ,New With {.class = "item ui header"})%>
+                    <% If (Session.Count > 0) Then%>
+                    <%: Html.ActionLink("Viajes", "Index", "Home",False, New With {.class = "item"})%>
+                   <%-- <%: Html.ActionLink("Linea Aerea", "Linea_Aerea", "Home",False, New With {.class = "item"})%>--%>
+                    <%: Html.ActionLink("Facturar", "Reservar", "Paquetes",False,New With {.class="item"})%>
+                    <div class="right menu">
+                        <div class="item">
+                            <%: Session("usuario") %>
+                            <%If Session("tipo") = 1 Then%>
+                            <%: " ( I )"%>
+                            <%ElseIf Session("tipo") = 2 Then%>
+                            <%: " ( II )"%>
+                            <%ElseIf Session("tipo") = 3 Then%>
+                            <%: " ( III )" %>
+                            <%End If%>
+                        </div>
+                        <div class="item">
+                            <a href="/login/logoff" class="">Cerrar Sesion</a>
+                        </div>
+                    </div>
+
+                    <%End If%>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="ui container ">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div class="ui hidden divider"></div>
+    <footer>
+        <div class="top"></div>
+        <div class="ui container">
+            <div class="ui tiny centered header">2015 - Proyecto UMG Agencia Viajes</div>
+        </div>
+        <div class="top"></div>
+    </footer>
+
+</body>
+</html>
